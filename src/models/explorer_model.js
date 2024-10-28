@@ -19,13 +19,14 @@ const explorerSchema = new Schema(
   { timestamps: true }
 );
 
-explorerSchema.pre("save", function (next) {
-  this.totalCost = this.expeditionParticipated.reduce(
-    (total, expeditionParticipated) => total + services.ref,
-    0
-  );
-  next();
+// Campo virtual para contar o número de expedições
+explorerSchema.virtual("expeditionCount").get(function () {
+  return this.expeditionParticipated.length;
 });
+
+// Configuração para garantir que os campos virtuais sejam incluídos ao converter o documento em JSON
+explorerSchema.set("toJSON", { virtuals: true });
+explorerSchema.set("toObject", { virtuals: true });
 
 const Explorer = model("Explorer", explorerSchema);
 
