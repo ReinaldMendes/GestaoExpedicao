@@ -4,7 +4,7 @@ import {
   index,
   update,
   destroy,
-} from "../controller/species_controller.js";
+} from "../controllers/species_controller.js";
 const router = Router();
 router.get("/", index);
 router.get("/:id", index);

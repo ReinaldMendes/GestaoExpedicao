@@ -4,7 +4,7 @@ import {
   index,
   update,
   destroy,
-} from "../controller/explorer_controller.js";
+} from "../controllers/explorer_controller.js";
 const router = Router();
 router.get("/", index);
 router.get("/:id", index);

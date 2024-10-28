@@ -4,7 +4,7 @@ import {
   index,
   update,
   destroy,
-} from "../controller/expedition_controller.js";
+} from "../controllers/expedition_controller.js";
 const router = Router();
 router.get("/", index);
 router.get("/:id", index);
